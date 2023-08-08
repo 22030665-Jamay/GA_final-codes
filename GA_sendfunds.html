@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Funds</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            background-color: turquoise;
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        .navigator {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .navigator div {
+            display: flex;
+        }
+        .send-funds-section {
+            width: 400px; 
+            margin-bottom: 20px;
+        }
+        .input-label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px; 
+            border: 1px solid #ccc; 
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Send Funds</h1>
+    </header>
+    <nav class="navigator">
+        <div><a href="GA_homepage.html">Home</a></div>
+        <div><a href="GA_accounts.html">Accounts</a></div>
+        <div><a href="GA_investment.html">Investment</a></div>
+        <div><a href="GA_settings.html">Settings</a></div>
+    </nav>
+
+    <div class="send-funds-section">
+        <label class="input-label" for="recipient">Recipient</label>
+        <input type="text" id="recipient" class="input-field" placeholder="Enter recipient's name">
+    </div>
+
+    <div class="send-funds-section">
+        <label class="input-label" for="amount">Amount</label>
+        <input type="number" id="amount" class="input-field" placeholder="Enter the amount to send">
+    </div>
+
+    <div class="send-funds-section">
+        <label class="input-label" for="message">Message: (optional)</label>
+        <textarea id="message" class="input-field" rows="4" placeholder="Enter an optional message"></textarea>
+    </div>
+
+    <button onclick="confirmSend()">Send</button>
+
+    <script>
+        function confirmSend() {
+            let recipientInput = document.getElementById('recipient');
+            let amountInput = document.getElementById('amount');
+
+            let recipient = recipientInput.value.trim();
+            let amount = parseFloat(amountInput.value);
+
+            if (recipient === "" || isNaN(amount) || amount <= 0) {
+                alert("Please fill in both the recipient and valid amount fields.");
+                return;
+            }
+            
+            if (window.confirm("Are you sure you want to send funds?")) {
+                alert("Funds sent successfully!");
+                window.location.href = "GA_homepage.html";
+            } else {
+                return;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: turquoise;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+
+        <button type="submit" id="signup_button">Sign Up</button>
+    </form>
+
+    <p id="error_message" style="color: red; display: none;">Passwords do not match.</p>
+
+    <script>
+        const users = [
+            { username: "User", password: "123" },
+        ];
+
+        function validateForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            const errorMessage = document.getElementById('error_message');
+
+            if (password !== confirmPassword) {
+                errorMessage.style.display = 'block';
+                return false; 
+            } else {
+                errorMessage.style.display = 'none';
+            
+                users.push({ username: username, password: password });
+                
+                alert('User added successfully!');
+                window.location.href = "GA_login.html"; 
+                return false; 
+            }
+        }
+    </script>
+</body>
+</html>

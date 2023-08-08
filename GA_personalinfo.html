@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            background-color: turquoise;
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        .navigator {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .navigator div {
+            display: flex;
+        }
+        .personal-info-section {
+            width: 400px; 
+            margin-bottom: 20px;
+        }
+        .input-label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px; 
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .edit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function showUpdateMessage() {
+            alert("Personal Information has been updated.");
+            window.location.href = "GA_homepage.html"; 
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Personal Information</h1>
+    </header>
+    <nav class="navigator">
+        <div><a href="GA_homepage.html">Home</a></div>
+        <div><a href="GA_accounts.html">Accounts</a></div>
+        <div><a href="GA_investment.html">Investment</a></div>
+        <div><a href="GA_settings.html">Settings</a></div>
+    </nav>
+
+    <div class="personal-info-section">
+        <label class="input-label" for="name">Name</label>
+        <input type="text" id="name" class="input-field" placeholder="Enter your name">
+    </div>
+
+    <div class="personal-info-section">
+        <label class="input-label" for="email">Email</label>
+        <input type="email" id="email" class="input-field" placeholder="Enter your email">
+    </div>
+
+    <div class="personal-info-section">
+        <label class="input-label" for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" class="input-field" placeholder="Enter your mobile number">
+    </div>
+
+    <div class="personal-info-section">
+        <label class="input-label" for="dob">Date of Birth</label>
+        <input type="date" id="dob" class="input-field">
+    </div>
+
+    <div class="personal-info-section">
+        <label class="input-label" for="password">Password</label>
+        <input type="password" id="password" class="input-field" placeholder="Enter your password">
+    </div>
+
+ 
+
+    <button class="edit-button" onclick="showUpdateMessage()">Edit</button>
+
+</body>
+</html>
