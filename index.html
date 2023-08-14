@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to MoneyClip</title>
+    <title>Login Page</title>
     <style>
         body {
             display: flex;
@@ -14,85 +14,60 @@
             margin: 0;
             background-color: turquoise;
         }
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        h1, h2, ul, p, a {
-            text-align: center;
-        }
-        ul {
-            padding: 0;
-            list-style: none;
-        }
-        li {
-            display: inline;
-            margin: 0 10px;
-        }
-        .fraud-alert {
-            margin-top: 10px;
-            font-size: 14px;
-            font-style: italic;
-        }
-        .short-paragraph {
-            max-width: 400px;
-            margin-bottom: 30px;
-        }
-        .image-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .image-grid a {
+        form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-decoration: none;
-            color: inherit;
+            gap: 10px;
         }
-        .image-grid img {
-            width: 120px;
-            height: 120px;
+        h1 {
+            text-align: center;
         }
-        .image-grid figcaption {
-            color: blue;
+        p {
+            text-align: center;
+        }
+        img {
+            width: 300px;
+            height: auto;
+        }
+        .error {
+            color: red;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to MoneyClip</h1>
-        <div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="GA_accounts.html">Accounts</a></li>
-                <li><a href="GA_investment.html">Investment</a></li>
-                <li><a href="GA_settings.html">Settings</a></li>
-            </ul>
-        </div>
-    </header>
-    <h2>What would you like to do today?</h2>
-    <div class="image-grid">
-        <a href="GA_sendfunds.html" aria-label="Send Funds">
-            <img src="Send Funds.png" alt="Send Funds">
-            <figcaption>Send Funds</figcaption>
-        </a>
-        <a href="GA_receivefunds.html" aria-label="Request For Funds">
-            <img src="ReceiveFunds.png" alt="Request For Funds">
-            <figcaption>Request For Funds</figcaption>
-        </a>
-    </div>
-    <div class="image-grid">
-        <a href="GA_scantopay.html" aria-label="Scan to Pay">
-            <img src="ScanToPay.png" alt="Scan to Pay">
-            <figcaption>Scan to Pay</figcaption>
-        </a>
-        <a href="GA_estatements.html" aria-label="E-statements">
-            <img src="E-Statement.png" alt="E-statements">
-            <figcaption>E-statements</figcaption>
-        </a>
-    </div>
-    <p class="short-paragraph">Fraud Alert: Watch out for fake banking app scams, asking you to make a transfer to sign a fake loan agreement using false MoneyClip documents. Call 61234567 if unsure.</p>
+    <img src="MoneyClip.png" alt="MoneyClip Logo">
+    <h1>Login</h1>
+    <form onsubmit="return validateLogin()" action="GA_homepage.html" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit">LOGIN</button>
+    </form>
+    <p class="error" id="error_message">Incorrect username or password.</p>
+    <p>Don't have an account? <a href="GA_signup.html">Sign Up</a></p>
+
+    <script>
+         function validateLogin() {
+            const correctUsername = "User";
+            const correctPassword = "123";
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === correctUsername && password === correctPassword) {
+               
+                return true;
+            } else {
+             
+                alert("Invalid username or password!");
+                return false; 
+            }
+        }
+    </script>
 </body>
 </html>
